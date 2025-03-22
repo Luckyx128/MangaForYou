@@ -5,12 +5,17 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Manga For You ❤️</title>
+		<title>Manga For You ❤️ {Astro.props.title}</title>
 	</head>
 	<body>
-		<a href="/">Início</a>
-		<a href="/about/">Sobre</a>
-		<a href="/blog/">Blog</a>
+		<nav>
+			<ul>
+
+				<li><a href="/">Início</a></li>
+				<li><a href="/about/">Sobre</a></li>
+				<li><a href="/blog/">Blog</a></li>
+			</ul>
+		</nav>
 		<slot />
 	</body>
 </html>
@@ -25,5 +30,17 @@
 	p {
 		margin: 0;
 		padding: 0;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		margin-left: 5px;
 	}
 </style>
