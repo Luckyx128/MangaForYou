@@ -25,10 +25,23 @@ const skills = [
 const happy = true;
 const finished = false;
 const goal = 3;
+const skillColor = "navy";
+const fontFamily = "Arial, sans-serif";
 ---
 
 <Layout title={pageTitle}>
+  <style define:vars={{skillColor, fontFamily}}>
+    h1 {
+      color: purple;
+      font-size: 4rem;
+      font-family: var(--fontFamily);
+    }
+    .skill {
+    color: var(--skillColor);
+    font-weight: bold;
+    }
   <body>
+  </style>
     <h1>{pageTitle}</h1>
     <h2>... e meu novo site Astro!</h2>
 
@@ -60,7 +73,7 @@ const goal = 3;
     </ul>
     <p>Minhas habilidades são:</p>
     <ul>
-      {skills.map((habilidade) => <li>{habilidade}</li>)}
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
     {happy && <p>Estou feliz em estar aprendendo Astro!</p>}
 
