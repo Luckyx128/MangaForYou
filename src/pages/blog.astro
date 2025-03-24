@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import BlogPost from "../components/BlogPost.astro";
 const allPosts = await Astro.glob('./posts/*.md');
-
 const mangaName = "Postagems";
 ---
 
@@ -10,16 +10,12 @@ const mangaName = "Postagems";
     <div class="container">
         <h1>{mangaName}</h1>
         {allPosts.map(post => (
-            <div class="post">
-                <h2>{post.frontmatter.title}</h2>
-                <a href={post.url}>Leia mais</a>
-                <p class="date">{post.frontmatter.date}</p>
-            </div>
-        ))}
+           <BlogPost title={post.frontmatter.title} url={post.url}date={post.frontmatter.date}  />
+        ))} 
     </div>
 </Layout>
 <style>
-     
+
 .container {
     width: 80%;
     margin: 0 auto;
