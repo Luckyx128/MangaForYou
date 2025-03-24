@@ -1,7 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import BlogPost from "../components/BlogPost.astro";
-const allPosts = await Astro.glob('./posts/*.md');
+const allPosts = await getCollection("blogs");
 const mangaName = "Postagems";
 ---
 
@@ -10,7 +11,7 @@ const mangaName = "Postagems";
     <div class="container">
         <h1>{mangaName}</h1>
         {allPosts.map(post => (
-           <BlogPost title={post.frontmatter.title} url={post.url}date={post.frontmatter.date}  />
+           <BlogPost title={post.data.title}  url={`/posts/${post.id}/`}date={post.data.pubDate}  />
         ))} 
     </div>
 </Layout>
@@ -20,7 +21,6 @@ const mangaName = "Postagems";
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .post {

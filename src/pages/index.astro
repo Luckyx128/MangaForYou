@@ -1,10 +1,11 @@
 ---
 import Destaques from '../components/Destaques.astro';
 import Layout from '../layouts/Layout.astro';
-
+import Greeting from '../components/Greeting';
 const pageTitle = "Bem-vindo ao meu site!";
 ---
 
 <Layout title={pageTitle} >
+	<Greeting client:load messages={["Oi", "Olá", "Coé", "E aí"]} />
 	<Destaques />
 </Layout>

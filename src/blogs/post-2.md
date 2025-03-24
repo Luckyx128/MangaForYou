@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 
 title: Minha Segunda Postagem no Blog
 author: Aluno de Astro

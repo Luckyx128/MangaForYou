@@ -5,9 +5,10 @@ import Layout from "./Layout.astro";
 <Layout title={frontmatter.title} >
     
 <h1>{frontmatter.title}</h1>
-<p>{frontmatter.pubDate.toString().slice(0,10)}</p>
+<p>{new Date(frontmatter.pubDate).toLocaleString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</p>
 <p><em>{frontmatter.description}</em></p>
 <p>Escrito por: {frontmatter.author}</p>
+<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
 <div class="tags">
     {frontmatter.tags.map((tag:string) => (
       <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
