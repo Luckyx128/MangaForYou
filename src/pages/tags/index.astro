@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const allPosts:any = await Astro.glob('../posts/*.md');
+const uniqueTags:any  = [...new Set(allPosts.map((post:any ) => post.frontmatter.tags).flat())];
+---
+
+<Layout title="Tags" >
+  <h1>Tags</h1>
+  <p>Lista de Tags</p>
+    <ul class="tags">
+        {uniqueTags.map((tag:any) => (
+        <li class="tag">
+            <a href={`/tags/${tag}`}>{tag}</a>
+        </li>
+        ))}
+</Layout>
+
+<style>
+    a {
+      color: #00539F;
+    }
+  
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      list-style:none
+    }
+  
+    .tag {
+      margin: 0.25em;
+      border: dotted 1px #a1a1a1;
+      border-radius: .5em;
+      padding: .5em 1em;
+      font-size: 1.15em;
+      background-color: #F8FCFD;
+    }
+  </style>
