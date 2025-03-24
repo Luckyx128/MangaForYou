@@ -1,0 +1,46 @@
+---
+const destaques = [
+    {title: "Destaque1", description: "Descrição do destaque 1", image: "https://example.com"},
+    {title: "Destaque2", description: "Descrição do destaque 2", image: "https://example.com"},
+    {title: "Destaque3", description: "Descrição do destaque 3", image: "https://example.com"},
+]
+---
+<section id='destaques'>
+    <section class="destaques">
+        {destaques.map((destaque) => (
+            <article class="destaque">
+                <img src={destaque.image} alt={destaque.title} />
+                <h3>{destaque.title}</h3>
+                <p>{destaque.description}</p>
+            </article>
+        ))}
+      
+    </section>
+    <span>Anterior</span>
+    <span>Próximo</span>
+</section>
+
+<style>
+    #destaques {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+    }
+    .destaques {
+        display: flex;
+        gap: 20px;
+    }
+    .destaque {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
+<script>
+
+let titulo = document.getElementById("destaques");
+titulo?.addEventListener("click", (e) => {
+})
+</script>

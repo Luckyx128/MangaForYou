@@ -1,0 +1,37 @@
+---
+const { frontmatter } = Astro.props;
+---
+<h1>{frontmatter.title}</h1>
+<p>{frontmatter.pubDate.toString().slice(0,10)}</p>
+<p><em>{frontmatter.description}</em></p>
+<p>Escrito por: {frontmatter.author}</p>
+<small>{frontmatter.tags.map((tag:string) => (
+     <span class="tag">{tag}</span>)
+)
+</small>
+<br>
+
+<slot />
+
+<style>
+    h1 {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+    p {
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
+    }
+    .tag {
+        background-color: #f0f0f0;
+        padding: 5px;
+        border-radius: 3px;
+        margin-right: 5px;
+    }
+    .tag:hover {
+        background-color: #e0e0e0;
+    }
+    .tag:active {
+        background-color: #d0d0d0;
+    }
+</style>
