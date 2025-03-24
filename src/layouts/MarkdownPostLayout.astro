@@ -1,6 +1,9 @@
 ---
 const { frontmatter } = Astro.props;
+import Layout from "./Layout.astro";
 ---
+<Layout title={frontmatter.title} >
+    
 <h1>{frontmatter.title}</h1>
 <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
 <p><em>{frontmatter.description}</em></p>
@@ -12,7 +15,7 @@ const { frontmatter } = Astro.props;
 <br>
 
 <slot />
-
+</Layouyt>
 <style>
     h1 {
         font-size: 2em;
